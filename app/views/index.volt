@@ -19,10 +19,10 @@
 
     <!-- Custom Fonts -->
     <link href="/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <scrip src="/public/js/bootstrap/bootstrap.min.js"></scrip>
     <style>
         #page-wrapper{
-            height: 575px;
+            height: 1000px;
         }
     </style>
     </head>
@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Rancho Grande</a>
+            <a class="navbar-brand" href="/">Parque Inmobiliario Rancho Grande</a>
 
         </div>
 
@@ -52,7 +52,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="/usuario"><i class="fa fa-fw fa-users "></i> Usuarios</a>
+                    <a href="/usuario/search"><i class="fa fa-fw fa-users "></i> Usuarios</a>
                 </li>
                 <li class="active">
                     <a href="/condominio"><i class="fa fa-fw fa-university"></i> Condominios</a>
@@ -72,8 +72,6 @@
                 <li class="active">
                     <a href="/"><i class="fa fa-fw  fa-gear"></i> Configuración</a>
                 </li>
-
-
             </ul>
         </div>
         <!-- /.navbar-collapse -->

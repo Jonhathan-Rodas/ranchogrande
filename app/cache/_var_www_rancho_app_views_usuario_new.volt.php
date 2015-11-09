@@ -28,19 +28,19 @@
     </div>
     <div class="form-group">
             <label for="idcondominio">Idcondominio</label>
-            <?php echo $this->tag->textField(array('idcondominio', 'type' => 'numeric', 'class' => 'form-control')); ?>
+            <?php echo $condominio; ?>
     </div>
     <div class="form-group">
             <label for="puesto">Puesto</label>
             <?php echo $this->tag->textField(array('puesto', 'size' => 30, 'class' => 'form-control')); ?>
     </div>
     <div class="form-group">
-            <label for="idtipos_usuario">Idtipos Of Usuario</label>
-            <?php echo $this->tag->textField(array('idtipos_usuario', 'type' => 'numeric', 'class' => 'form-control')); ?>
+            <label for="idtipos_usuario">Tipo de Usuario</label>
+            <?php echo $tipousuario; ?>
     </div>
     <div class="form-group">
             <label for="idvehiculo">Idvehiculo</label>
-            <?php echo $this->tag->textField(array('idvehiculo', 'type' => 'numeric', 'class' => 'form-control')); ?>
+            <?php echo $vehiculo; ?>
     </div>
     <div class="form-group">
             <label for="fotografia">Fotografia</label>

@@ -65,7 +65,29 @@ class UsuarioController extends ControllerBase
      */
     public function newAction()
     {
+        $condominio =  Phalcon\Tag::select(array(
+            "idcondominio",
+            Condominio::find(),
+            "using" => array("idcondominio","nombre")
+        ,"class" => "form-control"
+        ));
+        $this->view->setVar("condominio",$condominio);
 
+        $tipousuario =  Phalcon\Tag::select(array(
+            "idtipos_usuario",
+             TiposUsuario::find(),
+            "using" => array("idtipos_usuario","tipo")
+        ,"class" => "form-control"
+        ));
+        $this->view->setVar("tipousuario",$tipousuario);
+
+        $vehiculo =  Phalcon\Tag::select(array(
+            "idvehiculo",
+            Vehiculo::find(),
+            "using" => array("idvehiculo","placa")
+        ,"class" => "form-control"
+        ));
+        $this->view->setVar("vehiculo",$vehiculo);
     }
 
     /**
@@ -87,6 +109,31 @@ class UsuarioController extends ControllerBase
                     "action" => "index"
                 ));
             }
+
+            $condominio =  Phalcon\Tag::select(array(
+                "idcondominio",
+                Condominio::find(),
+                "using" => array("idcondominio","nombre")
+            ,"class" => "form-control"
+            ));
+            $this->view->setVar("condominio",$condominio);
+
+            $tipousuario =  Phalcon\Tag::select(array(
+                "idtipos_usuario",
+                TiposUsuario::find(),
+                "using" => array("idtipos_usuario","tipo")
+            ,"class" => "form-control"
+            ));
+            $this->view->setVar("tipousuario",$tipousuario);
+
+            $vehiculo =  Phalcon\Tag::select(array(
+                "idvehiculo",
+                Vehiculo::find(),
+                "using" => array("idvehiculo","placa")
+            ,"class" => "form-control"
+            ));
+            $this->view->setVar("vehiculo",$vehiculo);
+
 
             $this->view->idusuario = $usuario->idusuario;
 

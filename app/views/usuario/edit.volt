@@ -13,75 +13,42 @@
 </div>
 
 <table>
-    <tr>
-        <td align="right">
-            <label for="nombre">Nombre</label>
-        </td>
-        <td align="left">
-            {{ text_field("nombre", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="apellido">Apellido</label>
-        </td>
-        <td align="left">
-            {{ text_field("apellido", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="dpi">Dpi</label>
-        </td>
-        <td align="left">
-            {{ text_field("dpi", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="idcondominio">Idcondominio</label>
-        </td>
-        <td align="left">
-            {{ text_field("idcondominio", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="puesto">Puesto</label>
-        </td>
-        <td align="left">
-            {{ text_field("puesto", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="idtipos_usuario">Idtipos Of Usuario</label>
-        </td>
-        <td align="left">
-            {{ text_field("idtipos_usuario", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="idvehiculo">Idvehiculo</label>
-        </td>
-        <td align="left">
-            {{ text_field("idvehiculo", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fotografia">Fotografia</label>
-        </td>
-        <td align="left">
-            {{ text_field("fotografia", "size" : 30) }}
-        </td>
-    </tr>
-
-    <tr>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        {{ text_field("nombre", "size" : 30 , "class" : "form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido</label>
+        {{ text_field("apellido", "size" : 30 , "class" : "form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="dpi">Dpi</label>
+        {{ text_field("dpi", "size" : 30 , "class" : "form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="idcondominio">Condominio</label>
+        {{ condominio }}
+    </div>
+    <div class="form-group">
+        <label for="puesto">Puesto</label>
+        {{ text_field("puesto", "size" : 30 , "class" : "form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="idtipos_usuario">Tipo de Usuario</label>
+        {{ tipousuario }}
+    </div>
+    <div class="form-group">
+        <label for="idvehiculo">Vehiculo</label>
+        {{ vehiculo }}
+    </div>
+    <div class="form-group">
+        <label for="fotografia">Fotografia</label>
+        {{ text_field("fotografia", "size" : 30 , "class" : "form-control") }}
+    </div>
+    <div class="form-group">
         <td>{{ hidden_field("id") }}</td>
-        <td>{{ submit_button("Save") }}</td>
-    </tr>
+        <td>{{ submit_button("Save",  "class" : "btn btn-primary") }}</td>
+    </div>
 </table>
 
 </form>

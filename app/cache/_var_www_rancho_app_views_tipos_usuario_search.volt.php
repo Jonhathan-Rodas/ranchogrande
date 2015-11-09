@@ -7,7 +7,7 @@
             <?php echo $this->tag->linkTo(array('tipos_usuario/index', 'Regresar', 'class' => 'btn btn-default')); ?>
         </td>
         <td align="right">
-            <?php echo $this->tag->linkTo(array('tipos_usuario/new', 'Agregar un nuevo vehiculo ', 'class' => 'btn btn-success')); ?>
+            <?php echo $this->tag->linkTo(array('tipos_usuario/new', 'Agregar un nuevo Tipo de Usuario ', 'class' => 'btn btn-success')); ?>
         </td>
     </tr>
 </table>
@@ -26,8 +26,8 @@
     <?php foreach ($page->items as $tipos_usuario) { ?>
         <tr>
             <td><?php echo $tipos_usuario->tipo; ?></td>
-            <td><?php echo $this->tag->linkTo(array('tipos_usuario/edit/' . $tipos_usuario->idtipos_usuario, 'Edit')); ?></td>
-            <td><?php echo $this->tag->linkTo(array('tipos_usuario/delete/' . $tipos_usuario->idtipos_usuario, 'Delete')); ?></td>
+            <td><?php echo $this->tag->linkTo(array('tipos_usuario/edit/' . $tipos_usuario->idtipos_usuario, 'Editar', 'class' => 'btn btn-success')); ?></td>
+            <td><?php echo $this->tag->linkTo(array('tipos_usuario/delete/' . $tipos_usuario->idtipos_usuario, 'Eliminar', 'class' => 'btn btn-danger')); ?></td>
         </tr>
     <?php } ?>
     <?php } ?>

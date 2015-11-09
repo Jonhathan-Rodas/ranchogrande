@@ -7,7 +7,7 @@
             {{ link_to("tipos_usuario/index", "Regresar","class" : "btn btn-default") }}
         </td>
         <td align="right">
-            {{ link_to("tipos_usuario/new", "Agregar un nuevo vehiculo ", "class" : "btn btn-success") }}
+            {{ link_to("tipos_usuario/new", "Agregar un nuevo Tipo de Usuario ", "class" : "btn btn-success") }}
         </td>
     </tr>
 </table>
@@ -26,8 +26,8 @@
     {% for tipos_usuario in page.items %}
         <tr>
             <td>{{ tipos_usuario.tipo }}</td>
-            <td>{{ link_to("tipos_usuario/edit/"~tipos_usuario.idtipos_usuario, "Edit") }}</td>
-            <td>{{ link_to("tipos_usuario/delete/"~tipos_usuario.idtipos_usuario, "Delete") }}</td>
+            <td>{{ link_to("tipos_usuario/edit/"~tipos_usuario.idtipos_usuario, "Editar", "class" : "btn btn-success") }}</td>
+            <td>{{ link_to("tipos_usuario/delete/"~tipos_usuario.idtipos_usuario, "Eliminar", "class" : "btn btn-danger") }}</td>
         </tr>
     {% endfor %}
     {% endif %}

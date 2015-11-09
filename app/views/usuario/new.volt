@@ -28,19 +28,19 @@
     </div>
     <div class="form-group">
             <label for="idcondominio">Idcondominio</label>
-            {{ text_field("idcondominio", "type" : "numeric" , "class" : "form-control") }}
+            {{ condominio }}
     </div>
     <div class="form-group">
             <label for="puesto">Puesto</label>
             {{ text_field("puesto", "size" : 30 , "class" : "form-control") }}
     </div>
     <div class="form-group">
-            <label for="idtipos_usuario">Idtipos Of Usuario</label>
-            {{ text_field("idtipos_usuario", "type" : "numeric" , "class" : "form-control") }}
+            <label for="idtipos_usuario">Tipo de Usuario</label>
+            {{ tipousuario }}
     </div>
     <div class="form-group">
             <label for="idvehiculo">Idvehiculo</label>
-            {{ text_field("idvehiculo", "type" : "numeric" , "class" : "form-control") }}
+            {{ vehiculo }}
     </div>
     <div class="form-group">
             <label for="fotografia">Fotografia</label>
