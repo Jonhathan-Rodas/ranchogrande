@@ -2,6 +2,7 @@
  
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use Rodrigues\Barcode\Barcode;
 
 class UsuarioController extends ControllerBase
 {
@@ -50,6 +51,17 @@ class UsuarioController extends ControllerBase
                 "action" => "index"
             ));
         }
+
+        $barcode = new Barcode;
+
+        echo "<style>";
+        echo $barcode->getCssStyle();
+        echo "</style>";
+
+        //echo $barcode->code39("AB20150wewesdsd");
+
+
+        $this->view->setVar("barcode",$barcode);
 
         $paginator = new Paginator(array(
             "data" => $usuario,

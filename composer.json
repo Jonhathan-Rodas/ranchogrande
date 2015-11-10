@@ -1,0 +1,12 @@
+{
+    "name": "root/rancho",
+    "authors": [
+        {
+            "name": "Jonhathan Rolando",
+            "email": "jrodas4044@gmail.com"
+        }
+    ],
+    "require": {
+          "ianrodrigues/barcode": "0.5.1"
+    }
+}

@@ -4,7 +4,8 @@
 <table width="100%">
     <tr>
         <td align="left">
-            <?php echo $this->tag->linkTo(array('usuario/index', 'Regresar', 'class' => 'btn btn-default')); ?>
+            <?php echo $this->tag->linkTo(array('usuario/index', 'Buscar', 'class' => 'btn btn-default')); ?>
+
         </td>
         <td align="right">
             <?php echo $this->tag->linkTo(array('tipos_usuario/search', 'Ir a: Tipos de Usuario', 'class' => 'btn btn-primary')); ?>
@@ -21,6 +22,7 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Dpi</th>
+            <th>Codigo</th>
             <th>Condominio</th>
             <th>Tipo de Usuario</th>
             <th>Vehiculo</th>
@@ -34,6 +36,7 @@
             <td><?php echo $usuario->nombre; ?></td>
             <td><?php echo $usuario->apellido; ?></td>
             <td><?php echo $usuario->dpi; ?></td>
+            <td><?php echo $barcode->code39($usuario->dpi); ?></td>
             <td><?php echo $usuario->condominio->nombre; ?></td>
             <td><?php echo $usuario->tiposusuario->tipo; ?></td>
             <td><?php echo $usuario->vehiculo->placa; ?></td>
