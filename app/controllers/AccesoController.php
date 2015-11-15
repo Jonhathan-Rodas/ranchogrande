@@ -32,7 +32,7 @@ class AccesoController extends ControllerBase
         if (!is_array($parameters)) {
             $parameters = array();
         }
-        $parameters["order"] = "idacceso";
+        $parameters["order"] = "time DESC";
 
         $acceso = Acceso::find($parameters);
         if (count($acceso) == 0) {
@@ -58,6 +58,14 @@ class AccesoController extends ControllerBase
      */
     public function newAction()
     {
+        $acceso = Acceso::find(array(
+            "order" => "time DESC",
+            "limit" => "8"
+        ));
+        $this->view->setVar("accesos",$acceso);
+
+        $date = new DateTime();
+        $this->view->setVar("date",$date);
 
     }
 
@@ -104,27 +112,39 @@ class AccesoController extends ControllerBase
         }
 
         $acceso = new Acceso();
-
-        $acceso->idusuario = $this->request->getPost("idusuario");
+        $usuario  = $this->request->getPost("idusuario");
+        $usuario = Usuario::findFirstBydpi($usuario);
+        $acceso->idusuario =   $usuario->idusuario;
         $acceso->time = $this->request->getPost("time");
-        
+
+        $log = Acceso::findByidusuario($acceso->idusuario);
+        $ultimo =  count($log);
+        $tipo = ( $log[$ultimo-1]->tipo == 0 ) ? 1 : 0;
+        $acceso->tipo = $tipo;
 
         if (!$acceso->save()) {
             foreach ($acceso->getMessages() as $message) {
-                $this->flash->error($message);
+                $this->flash->error(
+                    '<div class="alert alert-danger" role="alert">
+                        El Usuario no existe
+                    </div>'
+                );
             }
-
             return $this->dispatcher->forward(array(
                 "controller" => "acceso",
                 "action" => "new"
             ));
         }
 
-        $this->flash->success("acceso was created successfully");
+        $msg_tipo = ($tipo == 0 )
+            ? '<div class="alert alert-success" role="alert">Se Registro una Salida</div>'
+            :'<div class="alert alert-info" role="alert">Se Registro un Entrada</div>';
+
+        $this->flash->success($msg_tipo);
 
         return $this->dispatcher->forward(array(
             "controller" => "acceso",
-            "action" => "index"
+            "action" => "new"
         ));
 
     }

@@ -19,10 +19,16 @@
 
     <!-- Custom Fonts -->
     <link href="/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <scrip src="/public/js/bootstrap/bootstrap.min.js"></scrip>
+    <script src="/public/js/jquery/jquery-2.1.4.min.js"></script>
+    <script src="/public/js/bootstrap/bootstrap.min.js"></script>
+
     <style>
         #page-wrapper{
             height: 1000px;
+        }
+
+        #guardar-acceso{
+            display: none;
         }
     </style>
     </head>
@@ -61,7 +67,7 @@
                     <a href="/vehiculo"><i class="fa fa-fw  fa-car"></i> Vehiculos</a>
                 </li>
                 <li class="active">
-                    <a href="/"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
+                    <a href="/acceso/new"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
                 </li>
                 <li class="active">
                     <a href="/"><i class="fa fa-fw  fa-book"></i> Reportes</a>

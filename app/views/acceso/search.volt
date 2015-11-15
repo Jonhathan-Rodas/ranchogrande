@@ -12,23 +12,31 @@
     </tr>
 </table>
 
-<table class="browse" align="center">
+<table class="browse table table-striped" >
     <thead>
         <tr>
-            <th>Idacceso</th>
-            <th>Idusuario</th>
-            <th>Time</th>
+            <th>Usuario</th>
+            <th>Condominio</th>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Datos de Acceso</th>
          </tr>
     </thead>
     <tbody>
     {% if page.items is defined %}
     {% for acceso in page.items %}
         <tr>
-            <td>{{ acceso.idacceso }}</td>
-            <td>{{ acceso.idusuario }}</td>
-            <td>{{ acceso.time }}</td>
-            <td>{{ link_to("acceso/edit/"~acceso.idacceso, "Edit") }}</td>
-            <td>{{ link_to("acceso/delete/"~acceso.idacceso, "Delete") }}</td>
+            <td>{{ acceso.usuario.nombre }} {{ acceso.usuario.apellido }}</td>
+            <td>{{ acceso.usuario.condominio.nombre }}</td>
+            <td>{{ acceso.usuario.vehiculo.placa }}</td>
+            <td>{{ acceso.usuario.vehiculo.tipos_vehiculo.tipo }}</td>
+            <td>
+                {% if  acceso.tipo == 1 %}
+                   <span class="alert-success" > Entrada:  {{ acceso.time }} </span>
+                {% else %}
+                  <span class="alert-warning">  Salida:  {{ acceso.time }} </span>
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
     {% endif %}
