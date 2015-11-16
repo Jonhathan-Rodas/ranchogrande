@@ -70,7 +70,7 @@
                     <a href="/acceso/new"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
                 </li>
                 <li class="active">
-                    <a href="/"><i class="fa fa-fw  fa-book"></i> Reportes</a>
+                    <a href="http://ranchogrande.io/acceso/search"><i class="fa fa-fw  fa-book"></i> Reportes</a>
                 </li>
                 <li class="active">
                     <a href="/"><i class="fa fa-fw fa-credit-card"></i> Impresión de Carné</a>

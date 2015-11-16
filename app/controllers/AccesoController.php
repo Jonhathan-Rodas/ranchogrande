@@ -46,7 +46,7 @@ class AccesoController extends ControllerBase
 
         $paginator = new Paginator(array(
             "data" => $acceso,
-            "limit"=> 10,
+            "limit"=> 50,
             "page" => $numberPage
         ));
 
