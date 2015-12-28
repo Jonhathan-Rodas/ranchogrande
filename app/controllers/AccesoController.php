@@ -20,7 +20,7 @@ class AccesoController extends ControllerBase
     public function searchAction()
     {
 
-        $numberPage = 1;
+       $numberPage = 1;
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, "Acceso", $_POST);
             $this->persistent->parameters = $query->getParams();
@@ -35,7 +35,8 @@ class AccesoController extends ControllerBase
         $parameters["order"] = "time DESC";
 
         $acceso = Acceso::find($parameters);
-        if (count($acceso) == 0) {
+      
+	 if (count($acceso) == 0) {
             $this->flash->notice("The search did not find any acceso");
 
             return $this->dispatcher->forward(array(
@@ -46,17 +47,103 @@ class AccesoController extends ControllerBase
 
         $paginator = new Paginator(array(
             "data" => $acceso,
-            "limit"=> 50,
+          "limit" => 300,
             "page" => $numberPage
         ));
 
-        $this->view->page = $paginator->getPaginate();
+         $condominios =  Phalcon\Tag::select(array(
+            "idcondominio",
+            Condominio::find(),
+            "using" => array("idcondominio","nombre")
+        ,"class" => "form-control"
+        ));
+
+        $this->view->setVar( "condominios" , $condominios );
+ 
+	$this->view->page =  $paginator->getPaginate();
     }
+
+    public function userAction(){
+	 
+	$dpi  = $this->request->getPost("dpi");
+	$desde  = $this->request->getPost("desde");
+	$time_desde = new DateTime($desde);
+	$time_desde =$time_desde->format('Y-m-d H:i:s') ;
+
+
+	$hasta  = $this->request->getPost("hasta");
+	$time_hasta = new DateTime($hasta);
+	$time_hasta =$time_hasta->format('Y-m-d H:i:s') ;
+        
+	$this->view->setVar("time_desde", $time_hasta );
+	
+        $usuario = Usuario::findFirstBydpi($dpi);
+        $idusuario =   $usuario->idusuario;
+	
+	#$this->request->getPost("idusuario");
+   	$conditions = "idusuario = ?1  AND (  time >= ?2 and time <= ?3 )";
+	$parameters = array(1 => $idusuario, 2 => $time_desde, 3 => $time_hasta); 
+	$users = Acceso::find(
+		array(
+		$conditions,
+			"bind" => $parameters
+		)	
+	);
+	 
+	$this->view->setVar("usuario",$usuario);
+        $this->view->setVar("users",$users);
+        $this->view->setVar("desde",$desde);
+        $this->view->setVar("hasta",$hasta);
+	
+
+	
+   }	
+
+   public function empresaAction(){
+	$desde  = $this->request->getPost("desde");
+	$time_desde = new DateTime($desde);
+	$time_desde =$time_desde->format('Y-m-d H:i:s') ;
+
+
+	$hasta  = $this->request->getPost("hasta");
+	$time_hasta = new DateTime($hasta);
+	$time_hasta =$time_hasta->format('Y-m-d H:i:s') ;
+       
+	$idcondominio  = $this->request->getPost("idcondominio");
+	$condominio = Condominio::findFirstByidcondominio ($idcondominio);
+
+        $conditions = "  time >= ?1 and time <= ?2 ";
+	$parameters = array(1 => $time_desde, 2 => $time_hasta); 
+	$acceso = Acceso::find(
+		array(
+                	$conditions,
+                        "bind" => $parameters
+                )      
+	);	
+	 $this->view->setVar("accesos",$acceso);
+	 $this->view->setVar("condominio",$condominio);
+         $this->view->setVar("desde",$desde);
+         $this->view->setVar("hasta",$hasta);
+
+    } 	
 
     /**
      * Displays the creation form
      */
     public function newAction()
+    {
+        $acceso = Acceso::find(array(
+            "order" => "time DESC",
+            "limit" => "8"
+        ));
+        $this->view->setVar("accesos",$acceso);
+
+        $date = new DateTime();
+        $this->view->setVar("date",$date);
+
+    }
+
+    public function movilAction()
     {
         $acceso = Acceso::find(array(
             "order" => "time DESC",

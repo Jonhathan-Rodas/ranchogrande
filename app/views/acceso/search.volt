@@ -1,38 +1,74 @@
-<div class="text-align: center;">
-<h2>REPORTE DE ACCESOS</h2>
-    <div>RANCHOGRANDE <br/>PARQUE INMOBILIARIO</div>
 <hr/>
-</div>
-<table class="browse table table-striped" >
-    <thead>
-        <tr>
-            <th>Usuario</th>
-            <th>Condominio</th>
-            <th>Placa</th>
-            <th>Datos de Acceso</th>
-         </tr>
-    </thead>
-    <tbody>
-    {% if page.items is defined %}
-    {% for acceso in page.items %}
-        <tr>
-            <td>{{ acceso.usuario.nombre }} {{ acceso.usuario.apellido }}</td>
-            <td>{{ acceso.usuario.condominio.nombre }}</td>
-            <td>{{ acceso.usuario.vehiculo.placa }}</td>
-                 <td>
-                {% if  acceso.tipo == 1 %}
-                   <span class="alert-success" > Entrada:  {{ acceso.time }} </span>
-                {% else %}
-                  <span class="alert-warning">  Salida:  {{ acceso.time }} </span>
-                {% endif %}
-            </td>
-        </tr>
-    {% endfor %}
-    {% endif %}
-    </tbody>
-    <tbody>
-    </tbody>
+<h2> Buscar por Usuario</h2>
+{{ form("acceso/user", "method":"post" , "class" : "well") }}
+{{ content() }}
+<table>
+         <tr>
+	<div  class="form-group">
+	Desde: <input type="text" name="desde" id="desde" size="30" class="form-control" required>  
+	</div>
+	
+	<div  class="form-group">
+		A: <input type="text" name="hasta" id="hasta" size="30" class="form-control" required>  
+	</div>
+	<script>
+		$(function() {
+			$( "#desde" ).datepicker();
+   			$( "#desde" ).datepicker( "option", "dateFormat", 'yy-mm-dd' );
+			$( "#hasta" ).datepicker();
+   			$( "#hasta" ).datepicker( "option", "dateFormat", 'yy-mm-dd' )
+   			 
+  		});
+	</script>
+
+       <div class="form-group">
+            <label for="idusuario">Ingrese DPI</label>
+            {{ text_field("dpi", "type" : "numeric", "class" : "form-control") }}
+        </div>
+
+        <td></td>
+        <td>{{ submit_button("Buscar", "id" : "Buscar por Usuario") }}</td>
+    </tr>
 </table>
+</form>
+
+
+<hr/>
+<h2> Buscar por empresa</h2>
+{{ form("acceso/empresa", "method":"post" , "class" : "well") }}
+{{ content() }}
+<table>
+         <tr>
+	<div  class="form-group">
+	Desde: <input type="text" name="desde" id="desde-con" size="30" class="form-control" required>  
+	</div>
+	
+	<div  class="form-group">
+		A: <input type="text" name="hasta" id="hasta-con" size="30" class="form-control" required>  
+	</div>
+	<script>
+		$(function() {
+			$( "#desde-con" ).datepicker();
+   			$( "#desde-con" ).datepicker( "option", "dateFormat", 'yy-mm-dd' );
+			$( "#hasta-con" ).datepicker();
+   			$( "#hasta-con" ).datepicker( "option", "dateFormat", 'yy-mm-dd' )
+   			 
+  		});
+	</script>
+
+       <div class="form-group">
+            <label for="idusuario">Selecione el Condominio</label>
+            {{ condominios }}
+        </div>
+
+        <td></td>
+        <td>{{ submit_button("Buscar", "id" : "Buscar por Usuario") }}</td>
+    </tr>
+</table>
+</form>
+
+
+
 <script>
     $('.side-nav').hide();
     $('#wrapper').css('padding-left','0px');

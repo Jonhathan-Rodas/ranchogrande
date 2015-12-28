@@ -22,7 +22,6 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Dpi</th>
-            <th>Codigo</th>
             <th>Condominio</th>
             <th>Tipo de Usuario</th>
             <th>Vehiculo</th>
@@ -36,7 +35,6 @@
             <td>{{ usuario.nombre }}</td>
             <td>{{ usuario.apellido }}</td>
             <td>{{ usuario.dpi }}</td>
-            <td>{{ barcode.code39(usuario.dpi) }}</td>
             <td>{{ usuario.condominio.nombre }}</td>
             <td>{{ usuario.tiposusuario.tipo }}</td>
             <td>{{ usuario.vehiculo.placa }}</td>

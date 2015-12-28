@@ -1,0 +1,36 @@
+<div class="text-align: center;">
+<h2></h2>
+<hr/>
+</div>
+<table class="browse table table-striped" >
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Condominio</th>
+            <th>Placa</th>
+            <th>Datos de Acceso</th>
+         </tr>
+    </thead>
+    <tbody>
+       {% for acceso in users %}
+        <tr>
+            <td>{{ acceso.usuario.nombre }} {{ acceso.usuario.apellido }}</td>
+            <td>{{ acceso.usuario.condominio.nombre }}</td>
+            <td>{{ acceso.usuario.vehiculo.placa }}</td>
+                 <td>
+                {% if  acceso.tipo == 1 %}
+                   <span class="alert-success" > Entrada:  {{ acceso.time }} </span>
+                {% else %}
+                  <span class="alert-warning">  Salida:  {{ acceso.time }} </span>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+     </tbody>
+    <tbody>
+    </tbody>
+</table>
+<script>
+    $('.side-nav').hide();
+    $('#wrapper').css('padding-left','0px');
+</script>

@@ -12,7 +12,7 @@
     </tr>
 </table>
 
-<table class="browse table table-striped"align="center">
+<table class="browse table table-striped" align="center">
     <thead>
         <tr>
 

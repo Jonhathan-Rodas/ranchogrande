@@ -22,7 +22,6 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Dpi</th>
-            <th>Codigo</th>
             <th>Condominio</th>
             <th>Tipo de Usuario</th>
             <th>Vehiculo</th>
@@ -36,7 +35,6 @@
             <td><?php echo $usuario->nombre; ?></td>
             <td><?php echo $usuario->apellido; ?></td>
             <td><?php echo $usuario->dpi; ?></td>
-            <td><?php echo $barcode->code39($usuario->dpi); ?></td>
             <td><?php echo $usuario->condominio->nombre; ?></td>
             <td><?php echo $usuario->tiposusuario->tipo; ?></td>
             <td><?php echo $usuario->vehiculo->placa; ?></td>

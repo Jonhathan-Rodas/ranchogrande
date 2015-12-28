@@ -34,6 +34,7 @@
     </head>
 
 <body>
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -46,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Parque Inmobiliario Rancho Grande</a>
+            <a class="navbar-brand" href="/"></a>
 
         </div>
 
@@ -69,8 +70,11 @@
                 <li class="active">
                     <a href="/acceso/new"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
                 </li>
+		<li class="active">
+                    <a href="/acceso/movil"><i class="fa fa-fw fa-unlock "></i> Verificación de Accesos</a>
+                </li>
                 <li class="active">
-                    <a href="http://ranchogrande.io/acceso/search"><i class="fa fa-fw  fa-book"></i> Reportes</a>
+                    <a href="/acceso/search"><i class="fa fa-fw  fa-book"></i> Reportes</a>
                 </li>
                 <li class="active">
                     <a href="/"><i class="fa fa-fw fa-credit-card"></i> Impresión de Carné</a>
