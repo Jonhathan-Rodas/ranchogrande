@@ -16,7 +16,7 @@
 <table>
     <div class="form-group">
             <label for="nombre">Nombre</label>
-            <?php echo $this->tag->textField(array('nombre', 'size' => 30, 'class' => 'form-control')); ?>
+            <?php echo $this->tag->textField(array('nombre', 'size' => 30, 'class' => 'form-control', 'x-webkit-speech' => '', 'speech' => '')); ?>
     </div>
     <div class="form-group">
             <label for="apellido">Apellido</label>

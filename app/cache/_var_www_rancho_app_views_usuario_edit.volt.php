@@ -46,7 +46,7 @@
         <?php echo $this->tag->textField(array('fotografia', 'size' => 30, 'class' => 'form-control')); ?>
     </div>
     <div class="form-group">
-        <td><?php echo $this->tag->hiddenField(array('id')); ?></td>
+        <td><?php echo $this->tag->hiddenField(array('idusuario')); ?></td>
         <td><?php echo $this->tag->submitButton(array('Save', 'class' => 'btn btn-primary')); ?></td>
     </div>
 </table>

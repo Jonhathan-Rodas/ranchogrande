@@ -36,6 +36,7 @@
     <thead>
     <tr>
         <th>Usuario</th>
+        <th>Tipo</th>
         <th>Condominio</th>
         <th>Placa</th>
         <th>Tipo</th>
@@ -46,10 +47,11 @@
 {% for acceso in accesos %}
     <tbody>
 <tr>
-    <td>{{ acceso.usuario.nombre }} {{ acceso.usuario.apellido }}</td>
+    <td>{{ acceso.usuario.nombre }} {{ acceso.usuario.apellido }} </td>
+    <td>{{ acceso.usuario.tiposUsuario.tipo }}</td>
     <td>{{ acceso.usuario.condominio.nombre }}</td>
     <td>{{ acceso.usuario.vehiculo.placa }}</td>
-    <td>{{ acceso.usuario.vehiculo.tipos_vehiculo.tipo }}</td>
+    <td>{{ acceso.usuario.vehiculo.tiposVehiculo.tipo }}</td>
     <td>
         {% if  acceso.tipo == 1 %}
         <span class="alert-success" > Entrada:  {{ acceso.time }} </span>

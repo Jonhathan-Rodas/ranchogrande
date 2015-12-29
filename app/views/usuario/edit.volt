@@ -46,7 +46,7 @@
         {{ text_field("fotografia", "size" : 30 , "class" : "form-control") }}
     </div>
     <div class="form-group">
-        <td>{{ hidden_field("id") }}</td>
+        <td>{{ hidden_field("idusuario") }}</td>
         <td>{{ submit_button("Save",  "class" : "btn btn-primary") }}</td>
     </div>
 </table>

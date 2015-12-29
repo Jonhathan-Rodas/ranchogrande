@@ -16,7 +16,7 @@
 <table>
     <div class="form-group">
             <label for="nombre">Nombre</label>
-            {{ text_field("nombre", "size" : 30 , "class" : "form-control") }}
+            {{ text_field("nombre", "size" : 30 , "class" : "form-control" ,"x-webkit-speech": '' , "speech":'') }}
     </div>
     <div class="form-group">
             <label for="apellido">Apellido</label>

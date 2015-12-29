@@ -36,6 +36,7 @@
     <thead>
     <tr>
         <th>Usuario</th>
+        <th>Tipo</th>
         <th>Condominio</th>
         <th>Placa</th>
         <th>Tipo</th>
@@ -46,10 +47,11 @@
 <?php foreach ($accesos as $acceso) { ?>
     <tbody>
 <tr>
-    <td><?php echo $acceso->usuario->nombre; ?> <?php echo $acceso->usuario->apellido; ?></td>
+    <td><?php echo $acceso->usuario->nombre; ?> <?php echo $acceso->usuario->apellido; ?> </td>
+    <td><?php echo $acceso->usuario->tiposUsuario->tipo; ?></td>
     <td><?php echo $acceso->usuario->condominio->nombre; ?></td>
     <td><?php echo $acceso->usuario->vehiculo->placa; ?></td>
-    <td><?php echo $acceso->usuario->vehiculo->tipos_vehiculo->tipo; ?></td>
+    <td><?php echo $acceso->usuario->vehiculo->tiposVehiculo->tipo; ?></td>
     <td>
         <?php if ($acceso->tipo == 1) { ?>
         <span class="alert-success" > Entrada:  <?php echo $acceso->time; ?> </span>

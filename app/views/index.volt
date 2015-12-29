@@ -17,10 +17,13 @@
     <!-- Custom CSS -->
     <link href="/public/css/sb-admin.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- Custom Fonts -->
     <link href="/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="/public/js/jquery/jquery-2.1.4.min.js"></script>
     <script src="/public/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.js"></script>
+
 
     <style>
         #page-wrapper{
@@ -31,71 +34,75 @@
             display: none;
         }
     </style>
-    </head>
+</head>
 
 <body>
 
 <div id="wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigationw</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"></a>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigationw</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"></a>
 
-        </div>
+    </div>
 
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-                <li class="active">
-                    <a href="/"><i class="fa fa-fw fa-dashboard"></i> Inicio</a>
-                </li>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li class="active">
+                <a href="/"><i class="fa fa-fw fa-dashboard"></i> Inicio</a>
+            </li>
 
-                <li class="active">
-                    <a href="/usuario/search"><i class="fa fa-fw fa-users "></i> Usuarios</a>
-                </li>
-                <li class="active">
-                    <a href="/condominio"><i class="fa fa-fw fa-university"></i> Condominios</a>
-                </li>
-                <li class="active">
-                    <a href="/vehiculo"><i class="fa fa-fw  fa-car"></i> Vehiculos</a>
-                </li>
-                <li class="active">
-                    <a href="/acceso/new"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
-                </li>
-		<li class="active">
-                    <a href="/acceso/movil"><i class="fa fa-fw fa-unlock "></i> Verificación de Accesos</a>
-                </li>
-                <li class="active">
-                    <a href="/acceso/search"><i class="fa fa-fw  fa-book"></i> Reportes</a>
-                </li>
-                <li class="active">
-                    <a href="/"><i class="fa fa-fw fa-credit-card"></i> Impresión de Carné</a>
-                </li>
-                <li class="active">
-                    <a href="/"><i class="fa fa-fw  fa-gear"></i> Configuración</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
+            <li class="active">
+                <a href="/usuario/search"><i class="fa fa-fw fa-users "></i> Usuarios</a>
+            </li>
+            <li class="active">
+                <a href="/condominio"><i class="fa fa-fw fa-university"></i> Condominios</a>
+            </li>
+            <li class="active">
+                <a href="/vehiculo"><i class="fa fa-fw  fa-car"></i> Vehiculos</a>
+            </li>
+            <li class="active">
+                <a href="/acceso/new"><i class="fa fa-fw fa-unlock "></i> Control de Accesos</a>
+            </li>
+            <li class="active">
+                <a href="/acceso/movil"><i class="fa fa-fw fa-unlock "></i> Verificación de Accesos</a>
+            </li>
+            <li class="active">
+                <a href="/visitantes/new"><i class="fa fa-fw  fa-car"></i>Nuevo Visitante</a>
+            </li>
+            <li class="active">
+                <a href="/acceso/search"><i class="fa fa-fw  fa-book"></i> Reportes</a>
+            </li>
+            <li class="active">
+                <a href="/"><i class="fa fa-fw fa-credit-card"></i> Impresión de Carné</a>
+            </li>
+            <li class="active">
+                <a href="/"><i class="fa fa-fw  fa-gear"></i> Configuración</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
 
-    <div id="page-wrapper">
-        <div class="container-fluid">
-           <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
-                    {{ content() }}
-                </div>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                {{ content() }}
             </div>
         </div>
-   </div>
+    </div>
+</div>
 </body>
 </html>
+        Status API Training Shop Blog About Pricing
