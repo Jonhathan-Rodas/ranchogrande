@@ -326,4 +326,67 @@ class AccesoController extends ControllerBase
         ));
     }
 
+    public function resumenAction()
+    {
+
+        $desde  = $this->request->getPost("desde");
+        $time_desde = new DateTime($desde);
+        $time_desde =$time_desde->format('Y-m-d H:i:s') ;
+
+
+        $hasta  = $this->request->getPost("hasta");
+        $time_hasta = new DateTime($hasta);
+        $time_hasta =$time_hasta->format('Y-m-d H:i:s') ;
+       
+        $idcondominio  = $this->request->getPost("idcondominio");        
+
+        $acceso = new Acceso;
+
+        $condominios = Condominio::find();
+        $tipos_v = TiposVehiculo::find();
+
+        echo '<h1>Resumen de Accesos</h1>';
+        echo "Del: $desde  Al: $hasta";
+
+        if($condominios->count() > 0 ) {
+            foreach ($condominios as $condominio) {
+                echo "<hr/>
+                        <h4>". $condominio->nombre .'</h4>
+                     <hr/>
+                    <table class="table table-striped">
+                    <tr>
+                        <td>Tipo de Vehiculo</td>
+                        <td> Total de Entradas y Salidas</td>
+                    </tr>
+                '; 
+                $total= 0;
+                foreach ($tipos_v as $tipo) {
+                    $resumen = $acceso->resumen( 
+                        $condominio->idcondominio, $time_desde, $time_hasta, $tipo->idtipos_vehiculo 
+                    );
+                    if($resumen->count() > 0){
+                      $totaltipo=round($resumen->count() / 2);
+                       echo '<tr>
+                        <td>'. $tipo->tipo.'</td>
+                        <td>'. $totaltipo .'</td>
+                        </tr>'; 
+                        $total = $total + $totaltipo;
+                    }                    
+                }
+                 echo ' </table> ';
+                 echo '<div class="well">Total de Entradas/Saldias: '. $total .'</div>';
+            }
+        } 
+        echo "
+        <script>
+            $('.side-nav').remove();
+            $('#wrapper').css('padding-left','0px');
+        </script>
+        ";
+        header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
+        header("Content-Disposition: attachment; filename=accesos.xlsx"); 
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Cache-Control: private",false);   
+    }              
 }

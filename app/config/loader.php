@@ -11,3 +11,9 @@ $loader->registerDirs(
         $config->application->modelsDir
     )
 )->register();
+
+$loader->registerNamespaces(
+    array(
+        "Store\\Models"      => "../models/"
+    )
+);

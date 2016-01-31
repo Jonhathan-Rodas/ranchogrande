@@ -67,9 +67,34 @@
 </table>
 </form>
 
+<h2> Resumen</h2>
+{{ form("acceso/resumen", "method":"post" , "class" : "well") }}
+{{ content() }}
+<table>
+         <tr>
+  <div  class="form-group">
+  Desde: <input type="text" name="desde" id="desde-res" size="30" class="form-control" required>  
+  </div>
+  
+  <div  class="form-group">
+    A: <input type="text" name="hasta" id="hasta-res" size="30" class="form-control" required>  
+  </div>
+  <script>
+    $(function() {
+      $( "#desde-res" ).datepicker();
+        $( "#desde-res" ).datepicker( "option", "dateFormat", 'yy-mm-dd' );
+      $( "#hasta-res" ).datepicker();
+        $( "#hasta-res" ).datepicker( "option", "dateFormat", 'yy-mm-dd' )
+         
+      });
+  </script>
+
+        <td></td>
+        <td>{{ submit_button("Buscar", "id" : "Buscar por Usuario") }}</td>
+    </tr>
+</table>
+</form>
 
 
-<script>
-    $('.side-nav').hide();
-    $('#wrapper').css('padding-left','0px');
-</script>
+
+
